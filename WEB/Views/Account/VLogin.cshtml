@@ -1,0 +1,63 @@
+﻿@model WEB.Models.Account.LoginViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Authorisation</title>
+
+        <link rel="stylesheet" href="~/css/StyleHome.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="~/css/Login.css"/>
+
+      
+    </head>
+
+
+    <body>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+        <div class="sign-up">
+            <h1 class="sign-up-title">Authorisation</h1>
+
+            @*@Html.ValidationSummary(false)*@
+
+
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+                <div class="error" asp-validation-summary="All"></div>
+
+                <div>
+                    <input class="sign-up-input" type="text" asp-for="Email" placeholder="Email" autofocus />
+                </div>
+
+                <div>
+                    <input class="sign-up-input" type="text" asp-for="Password" placeholder="Password" />
+                </div>
+
+                <input type="submit" value="Login" class="sign-up-button">
+            }
+
+            @*@using (Html.BeginForm("VRegistration", "Account", FormMethod.Post))
+            {
+                <input type="submit" value="Sign up" class="sign-up-button1">
+            }*@
+
+            @using (Html.BeginForm("VForgotPassword", "Account", FormMethod.Post))
+            {
+                <input type="submit" value="Forgot password " class="sign-up-button2">
+            }
+        </div>
+    </body>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

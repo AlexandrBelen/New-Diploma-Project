@@ -1,0 +1,46 @@
+﻿@model WEB.Models.CurriculumDepartment.AddCurriculumModel
+@{
+}
+
+<style>
+    .main {
+        padding-left: 30px;
+        padding-top: 50px;
+        position: absolute;
+        width: 98%;
+    }
+
+    .input {
+        width: auto;
+        height: 50px;
+        margin-bottom: 25px;
+        padding: 0 15px 2px;
+        font-size: 15px;
+        background: white;
+        border: 2px solid #ebebeb;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 -2px #ebebeb;
+        box-shadow: inset 0 -2px #ebebeb;
+    }
+
+        .input:before {
+            padding: 0 15px 2px;
+            font-size: 17px;
+        }
+
+        .input:focus {
+            border-color: #62c2e4;
+            outline: none;
+            -webkit-box-shadow: inset 0 -2px #62c2e4;
+            box-shadow: inset 0 -2px #62c2e4;
+        }
+
+    .text {
+        font-size: 17px;
+        white-space: pre;
+    }
+</style>
+
+<select id="cathedra" asp-items=@Model.newListCathedra; class="input">
+    <option selected="selected" disabled="disabled">(виберіть кафедру)</option>
+</select>

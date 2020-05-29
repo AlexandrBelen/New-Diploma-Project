@@ -1,0 +1,116 @@
+﻿@using BLL.DTO;
+@model WEB.Models.EducationalDepartment.SpecializationModel
+@{
+}
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Admin</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login.css">
+
+
+</head>
+
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="VHome">Головна</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetFaculty">Перелік факультетів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddFaculty">Добавити факультет</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetCathedra">Перелік кафедр</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddCathedra">Добавити кафедру</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetSpeciality">Перелік спеціальностей</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddSpeciality">Добавити спеціальність</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetSpecialization">Перелік спеціалізацій</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddSpecialization">Добавити спеціалізацію</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a href=""><pre>   Акаунт ▽    </pre></a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        table {
+            width: 30%; /* Ширина таблицы */
+            padding-top: 50px;
+            padding-left: 10px;
+            color: black; /* Цвет текста */
+            border-spacing: 1px; /* Расстояние между ячейками */
+        }
+
+        td, th {
+            background: #FFCC99; /* Цвет фона ячеек */
+            padding: 5px; /* Поля вокруг текста */
+        }
+    </style>
+
+    <table>
+        <tr>
+            <th colspan="4"> Список спеціалізацій</th>
+        </tr>
+        <tr>
+            <th>Факультет</th>
+            <th>Кафедра</th>
+            <th>Спеціальність</th>
+            <th>Спеціалізація</th>
+        </tr>
+
+        @foreach (SpecializationDTO list in Model.newList)
+        {
+            <tr>
+                <td>@list.nameFaculty </td>
+                <td>@list.nameCathedra</td>
+                <td>@list.Speciality</td>
+                <td>@list.nameSpecialization</td>
+            </tr>
+        }
+    </table>
+</body>

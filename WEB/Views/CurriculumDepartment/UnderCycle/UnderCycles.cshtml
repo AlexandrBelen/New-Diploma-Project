@@ -1,0 +1,116 @@
+﻿@using BLL.DTO;
+@model WEB.Views.UnderCycle.UnderCyclesModel
+@{
+}
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Admin</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login.css">
+
+
+</head>
+
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                @*<span class="decor"></span>*@
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="VHomeUser">Головна</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="FormDelivery" asp-action="GetFormDelivery">Перелік типів здачі предметів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="FormDelivery" asp-action="Add_FormDelivery">Добавити тип здачі</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Cycle" asp-action="GetCycle">Перелік циклів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="Cycle" asp-action="Add_Cycle">Добавити цикл</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="UnderCycle" asp-action="GetUnderCycle">Перелік підциклів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="UnderCycle" asp-action="Add_UnderCycle">Добавити підцикл</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            @*<a asp-area="" asp-controller="Curriculum" asp-action="GetCurriculum">Перелік НП</a>*@
+                            <a asp-area="" asp-controller="PlanEducationalProcess" asp-action="GetPlanEducationalProcess">Перелік НП</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="Curriculum" asp-action="Add_Curriculum">Створити НП</a></li>
+                                <li><a asp-area="" asp-controller="PlanEducationalProcess" asp-action="Add_PlanEducationalProcess">Добавити дисципліни НП</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a href="">Акаунт ▽</a>
+                            <ul class="sub">
+                                <li><a href="">Налаштування</a></li>
+                                <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        table {
+            width: 30%; /* Ширина таблицы */
+            padding-top: 50px;
+            padding-left: 10px;
+            color: black; /* Цвет текста */
+            border-spacing: 1px; /* Расстояние между ячейками */
+        }
+
+        td, th {
+            background: #FFCC99; /* Цвет фона ячеек */
+            padding: 5px; /* Поля вокруг текста */
+        }
+    </style>
+
+    <table>
+        <tr>
+            <th colspan="4"> Список підциклів</th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Назва циклу</th>
+            <th>Назва підциклу</th>
+            <th>Код</th>
+        </tr>
+
+        @foreach (UnderCycleDTO list in Model.newList)
+        {
+            <tr>
+                <td>@list.Id_UnderCycle </td>
+                <td>@list.CycleName</td>
+                <td>@list.UnderCycleName</td>
+                <td>@list.Code</td>
+            </tr>
+        }
+    </table>
+</body>

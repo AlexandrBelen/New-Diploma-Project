@@ -1,0 +1,106 @@
+﻿
+@model WEB.Models.AdminDepartment.AddFormDeliveryModel
+@{
+}
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Authorisation</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login.css" />
+
+
+</head>
+
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="AdminDepartment" asp-action="VHome">Головна</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="AdminDepartment" asp-action="GetKnowledgeArea">Перелік галузей знань</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="AdminDepartment" asp-action="GetAddKnowledgeArea">Добавити галузь</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="AdminDepartment" asp-action="GetFormEducation">Перелік форм навчання</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="AdminDepartment" asp-action="GetAddFormEducation">Добавити форму</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="AdminDepartment" asp-action="GetFormDelivery">Перелік форм здачі</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="AdminDepartment" asp-action="GetAddFormDelivery">Добавити форму</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="AdminDepartment" asp-action="GetEducationalDegree">Перелік освітніх ступенів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="AdminDepartment" asp-action="GetAddEducationalDegree">Добавити ступінь</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a href=""><pre>   Акаунт ▽    </pre></a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <div class="sign-up">
+        <h1 class="sign-up-title">Створення типу здачі</h1>
+
+        @*@Html.ValidationSummary(false)*@
+
+
+        @using (Html.BeginForm("AddNewFormDelivery", "AdminDepartment", FormMethod.Post))
+        {
+            <div class="error" asp-validation-summary="All"></div>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="nameFormDelivery" placeholder="Тип здачі" autofocus />
+            </div>
+
+            <input type="submit" value="Створити" class="sign-up-button">
+        }
+
+    </div>
+</body>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Відділ кадрів";
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome — копия.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login — копия — копия — копия — копия.css">
+
+
+</head>
+
+
+<body>
+    <header>
+
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="Teacher" asp-action="Index">Головна</a>
+                        </li>
+                        <li>
+                            <a href="">Викладачі</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="Teacher" asp-action="GetStudents">Списки викладачів</a></li>
+                                <li><a asp-area="" asp-controller="Teacher" asp-action="Teacher">Додати викладача</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">Освіта</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="BasicE" asp-action="GetPruppas">Списки базових освіт</a></li>
+                                <li><a asp-area="" asp-controller="BasicE" asp-action="Gruppa">Додати освіту</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                @*<span class="decor"></span>*@
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <ul class="primary">
+                                <li><a asp-area="" asp-controller="Account" asp-action="Logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="display-4">Ласкаво просимо!</h1>
+                        <div>
+                            <hr class="my-4" />
+                            <p>
+                                Наша система створена спеціально для вас!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>Iнформація</h3>
+                        <ul>
+                            <li><a target="_campus_calendar" href="http://rozklad.kpi.ua/">Розклад занять та сесії <i class="fa fa-external-link"></i></a><br /></li>
+                            <li><a href="/bb">Дошка оголошень</a><br /></li>
+                            <li><a href="/about">Про систему</a><br /></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Аккаунт</h3>
+                        <ul>
+                            <li><a href="/settings">Налаштування</a><br /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3>Оголошення</h3>
+                <div>
+                    <div>
+                        <div>
+                            <h5>Атестація в КПІ ім. Ігоря Сікорського</h5><h6>5/7/2020 - ...</h6><p>
+                                Добрий день.<br>
+                                Проведення 2-ї атестації у другому півріччі здійснюється в системі «Електронний кампус». <br>
+                                Період  внесення результатів атестації в систему «Електронний кампус»  з <em>04.05.2020р. по 17.05.2020р. </em>включно. <br>
+
+
+                                З повагою,
+                                КБІС.
+                            </p><a href="#">Докладніше</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="">Читати усi оголошення</a>
+            </div>
+        </div>
+    </div>
+
+</body>

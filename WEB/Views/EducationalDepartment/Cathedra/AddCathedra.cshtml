@@ -1,0 +1,116 @@
+﻿@using BLL.DTO;
+@model WEB.Models.EducationalDepartment.AddCathedraModel
+@{
+}
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Authorisation</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login.css" />
+
+
+</head>
+
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="VHome">Головна</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetFaculty">Перелік факультетів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddFaculty">Добавити факультет</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetCathedra">Перелік кафедр</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddCathedra">Добавити кафедру</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetSpeciality">Перелік спеціальностей</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddSpeciality">Добавити спеціальність</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetSpecialization">Перелік спеціалізацій</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddSpecialization">Добавити спеціалізацію</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a href=""><pre>   Акаунт ▽    </pre></a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <div class="sign-up">
+        <h1 class="sign-up-title">Створення кафедри</h1>
+
+        @*@Html.ValidationSummary(false)*@
+
+
+        @using (Html.BeginForm("AddNewCathedra", "EducationalDepartment", FormMethod.Post))
+        {
+            <div class="error" asp-validation-summary="All"></div>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="nameCathedra" placeholder="Назва кафедри" autofocus />
+            </div>
+
+            <script>
+                @*document.addEventListener("DOMContentLoaded", function () {
+                    document.getElementById("elem").onclick = function () {
+                        @Model.Name_area = document.getElementById("months").value;
+                    };
+                });*@
+            </script>
+
+            <select asp-for="nameFaculty" asp-items=@Model.newList class="sign-up-input">
+                <option selected="selected" disabled="disabled">Виберіть факультет</option>
+            </select>
+            <input type="submit" id="elem" value="Створити" name="" class="sign-up-button">
+            @*<input type="button" value="Login" class="sign-up-button" onclick="getValue()">*@
+        }
+
+
+    </div>
+</body>

@@ -1,0 +1,146 @@
+﻿@using BLL.DTO;
+@model WEB.Views.PlanEducationalProcess.Add_PlanEducationalProcessModel
+@{
+}
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Authorisation</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login.css" />
+
+
+</head>
+
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                @*<span class="decor"></span>*@
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="VHomeUser">Головна</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="FormDelivery" asp-action="GetFormDelivery">Перелік типів здачі предметів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="FormDelivery" asp-action="Add_FormDelivery">Добавити тип здачі</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Cycle" asp-action="GetCycle">Перелік циклів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="Cycle" asp-action="Add_Cycle">Добавити цикл</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="UnderCycle" asp-action="GetUnderCycle">Перелік підциклів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="UnderCycle" asp-action="Add_UnderCycle">Добавити підцикл</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            @*<a asp-area="" asp-controller="Curriculum" asp-action="GetCurriculum">Перелік НП</a>*@
+                            <a asp-area="" asp-controller="PlanEducationalProcess" asp-action="GetPlanEducationalProcess">Перелік НП</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="Curriculum" asp-action="Add_Curriculum">Створити НП</a></li>
+                                <li><a asp-area="" asp-controller="PlanEducationalProcess" asp-action="Add_PlanEducationalProcess">Добавити дисципліни НП</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a href="">Акаунт ▽</a>
+                            <ul class="sub">
+                                <li><a href="">Налаштування</a></li>
+                                <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <div class="sign-up">
+        <h1 class="sign-up-title">Створення дисципліни</h1>
+
+        @*@Html.ValidationSummary(false)*@
+
+
+        @using (Html.BeginForm("CreateNewPlanEducationalProcess", "PlanEducationalProcess", FormMethod.Post))
+        {
+            <div class="error" asp-validation-summary="All"></div>
+
+            <select asp-for="ID_Curriculm" asp-items=@Model.newListIdCurriculm class="sign-up-input">
+                <option selected="selected" disabled="disabled">Виберіть НП</option>
+            </select>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="NameDiscipline" placeholder="Назва дисципліни" autofocus />
+            </div>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="Semester" placeholder="Семестр навчання" autofocus />
+            </div>
+
+            <select asp-for="nameFormDelivery" asp-items=@Model.newListFormDelivery class="sign-up-input">
+                <option selected="selected" disabled="disabled">Форма здачі</option>
+            </select>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="Course" placeholder="Роботи" autofocus />
+            </div>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="Projects" placeholder="Проекти" autofocus />
+            </div>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="LectureHours" placeholder="Лекції" autofocus />
+            </div>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="PracticesHours" placeholder="Практичні" autofocus />
+            </div>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="LaboratoryHours" placeholder="Лабораторні" autofocus />
+            </div>
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="IndependentWorkHours" placeholder="Самостійна робота" autofocus />
+            </div>
+
+            <select asp-for="nameUnderCycle" asp-items=@Model.newListUnderCycle class="sign-up-input">
+                <option selected="selected" disabled="disabled">Виберіть підцикл</option>
+            </select>
+
+
+            <input type="submit" id="elem" value="Створити" name="" class="sign-up-button">
+            @*<input type="button" value="Login" class="sign-up-button" onclick="getValue()">*@
+        }
+
+
+    </div>
+</body>

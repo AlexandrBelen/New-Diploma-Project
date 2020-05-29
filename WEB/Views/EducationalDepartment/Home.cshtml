@@ -1,0 +1,84 @@
+﻿@*@model WEB.Models.EducationalDepartment.
+@{
+}*@
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login.css">
+
+
+</head>
+
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="VHome">Головна</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetFaculty">Перелік факультетів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddFaculty">Добавити факультет</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetCathedra">Перелік кафедр</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddCathedra">Добавити кафедру</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetSpeciality">Перелік спеціальностей</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddSpeciality">Добавити спеціальність</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="EducationalDepartment" asp-action="GetSpecialization">Перелік спеціалізацій</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="EducationalDepartment" asp-action="GetAddSpecialization">Добавити спеціалізацію</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a href=""><pre>   Акаунт ▽    </pre></a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+
+</body>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

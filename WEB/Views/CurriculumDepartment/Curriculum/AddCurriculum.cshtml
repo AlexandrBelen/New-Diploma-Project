@@ -1,0 +1,187 @@
+﻿@using BLL.DTO;
+@model WEB.Models.CurriculumDepartment.AddCurriculumModel;
+@{
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Authorisation</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login.css" />
+
+
+</head>
+
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="CurriculumDepartment" asp-action="VHome">Головна</a>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="CurriculumDepartment" asp-action="GetAddCurriculum">Створити</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a href=""><pre>   Акаунт ▽    </pre></a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/Content/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/lib/jquery/Content/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="http://www.tigir.com/js/linkedselect.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <style>
+        .main12 {
+            /*padding-left: 30px;
+            padding-top: 50px;
+            position: relative;
+            width: 98%;*/ 
+            padding-left: 30px;
+            padding-top: 100px;
+        }
+
+        .input {
+            width: auto;
+            height: 50px;
+            margin-bottom: 25px;
+            padding: 0 15px 2px;
+            font-size: 15px;
+            background: white;
+            border: 2px solid #ebebeb;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 -2px #ebebeb;
+            box-shadow: inset 0 -2px #ebebeb;
+        }
+
+            /*.input:before {
+                padding: 0 15px 2px;
+                font-size: 17px;
+            }
+
+            .input:focus {
+                border-color: #62c2e4;
+                outline: none;
+                -webkit-box-shadow: inset 0 -2px #62c2e4;
+                box-shadow: inset 0 -2px #62c2e4;
+            }*/
+
+        .text {
+            font-size: 17px;
+            white-space: pre;
+        }
+    </style>
+
+    @*<div class="main">*@
+
+        @*@Html.ValidationSummary(false)*@
+
+
+        @using (Html.BeginForm("CreateNewCurriculum", "Curriculum", FormMethod.Post))
+        {
+        <div class="main12">
+
+
+            <output class="text"> Підготовки </output>
+            <select asp-for="nameEducationalDegree" asp-items=@Model.newListEducationalDegree class="input">
+                <option selected="selected" disabled="disabled">(назва освітнього ступеня)</option>
+            </select>
+
+            <output class="text">   з галузі знань   </output>
+            <select asp-items=@Model.newKnowledgeArea class="input">
+                <option selected="selected" disabled="disabled">(шифр і назва галузі знань)</option>
+            </select>
+
+            <output class="text">   Факультет (інститут)   </output>
+            <select id="faculty" asp-items=@Model.newFaculty class="input">
+                <option selected="selected" disabled="disabled">(виберіть факультет або інститут)</option>
+            </select>
+
+            <output class="text">   випускова кафедра   </output>
+            <select id="cathedra" asp-items=@Model.newListCathedra class="input">
+                <option selected="selected" disabled="disabled">(виберіть кафедру)</option>
+            </select>
+
+
+
+            <div>
+                <input class="input" type="text" asp-for="BasedOn" placeholder="Кваліфікація" autofocus />
+            </div>
+
+
+
+            @*<select asp-for="nameSpecialization" asp-items=@Model.newListSpecialization class="sign-up-input">
+            <option selected="selected" disabled="disabled">Виберіть спеціалізацію</option>
+        </select>
+
+        <select asp-for="nameForm_of_education" asp-items=@Model.newListForm_of_education class="sign-up-input">
+            <option selected="selected" disabled="disabled">Виберіть Форму навчання</option>
+        </select>
+
+        <select asp-for="nameEducationalDegree" asp-items=@Model.newListEducationalDegree class="sign-up-input">
+            <option selected="selected" disabled="disabled">Виберіть освітню ступінь</option>
+        </select>*@
+
+            <input type="submit" id="elem" value="Створити" name="" class="sign-up-button">
+            @*<input type="button" value="Login" class="sign-up-button" onclick="getValue()">*@
+            </div>
+            }
+
+
+        @*</div>*@
+</body>
+
+@section scripts{
+    <script type="text/javascript">
+    $(function () {
+
+        $('#faculty').change(function()
+        {
+            var w = $(this).val();
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetItemsFaculty", "CurriculumDepartment")/' + w,
+                success: function (data) {
+                    $('#cathedra').replaceWith(data);
+                }
+            });
+        });
+    })
+    </script>
+}

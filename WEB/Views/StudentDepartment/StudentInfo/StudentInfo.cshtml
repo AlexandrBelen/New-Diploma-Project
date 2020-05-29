@@ -1,0 +1,119 @@
+﻿@using BLL.DTO;
+@model WEB.Models.StudentDepartment.GetStudentInfoViewModel
+@{
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Admin</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login.css">
+
+
+</head>
+
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="StudentDepartment" asp-action="VHome">Головна</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="StudentDepartment" asp-action="GetStudentInfo">Перелік факультетів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="StudentDepartment" asp-action="AddStudentInfo">Добавити факультет</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="StudentDepartment" asp-action="GetGruppa">Перелік кафедр</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="StudentDepartment" asp-action="AddGruppa">Добавити кафедру</a></li>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a href=""><pre>   Акаунт ▽    </pre></a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        table {
+            width: 30%; /* Ширина таблицы */
+            padding-top: 50px;
+            padding-left: 10px;
+            color: black; /* Цвет текста */
+            border-spacing: 1px; /* Расстояние между ячейками */
+        }
+
+        td, th {
+            background: #FFCC99; /* Цвет фона ячеек */
+            padding: 5px; /* Поля вокруг текста */
+        }
+    </style>
+
+    <table>
+        <tr>
+            <th colspan="3"> Список студентів</th>
+        </tr>
+        <tr>
+            <th>Ім'я</th>
+            <th>Прізвище</th>
+            <th>По-батькові</th>
+            <th>Дата народження</th>
+            <th>Телефон</th>
+            <th>Електронна адреса</th>
+            <th>Домашня адреса</th>
+            <th>Стать</th>
+            <th>Ім'я опікуна</th>
+            <th>Телефон опікуна</th>
+            <th>Ім'я опікуна</th>
+            <th>Телефон опікуна</th>
+        </tr>
+
+        @foreach (StudentInfoDTO list in Model.newList)
+        {
+    <tr>
+        <td>@list.studentName </td>
+        <td>@list.studentLastName</td>
+        <td>@list.studentMiddleName</td>
+        <td>@list.bday</td>
+        <td>@list.phone</td>
+        <td>@list.email</td>
+        <td>@list.homeAddress</td>
+        <td>@list.studentSex</td>
+        <td>@list.StudentFirstParentName</td>
+        <td>@list.StudentFirstParentPhone</td>
+        <td>@list.StudentSecondParentName</td>
+        <td>@list.StudentSecondParentPhone</td>
+    </tr>
+        }
+    </table>
+</body>

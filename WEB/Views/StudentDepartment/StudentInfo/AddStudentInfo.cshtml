@@ -1,0 +1,167 @@
+﻿@model WEB.Models.StudentInfoViewModel
+@{
+    ViewData["Title"] = "AddStudentInfo";
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Новий студент</title>
+    //<link rel="stylesheet" href="~/css/StyleHome.css">
+    //<link rel="stylesheet" href="~/css/Login.css" />
+</head>
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="Student" asp-action="Index">Головна</a>
+                        </li>
+                        <li>
+                            <a href=""></a>
+                            <ul class="sub">
+                                <li><a href="">Групи</a></li>
+                                <li><a href="">Кафедра</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="wrap_">
+            <nav>
+                <ul class="primary">
+                    <li>
+                        <a href=""><pre>   Акаунт ▽    </pre></a>
+                        <ul class="sub">
+                            <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <div class="sign-up">
+        <h1 class="sign-up-title">Додати інформацію</h1>
+
+        @using (Html.BeginForm("AddStudentInfo", "StudentDepartment", FormMethod.Post))
+        {
+
+            @*<div autofocus>
+                @Html.EditorFor(model => model.studentName, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "studentName", required = "required" } })
+                @Html.ValidationMessageFor(model => model.studentName, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.EditorFor(model => model.studentMiddleName, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "studentMiddleName" } })
+                @Html.ValidationMessageFor(model => model.studentMiddleName, "", new { @class = "text-danger" })
+            </div>
+
+            <div>
+                @Html.EditorFor(model => model.studentLastName, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "studentLastName", required = "required" } })
+                @Html.ValidationMessageFor(model => model.studentLastName, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.bday, new { htmlAttributes = new { @class = "sign-up-int", @type = "date", @placeholder = "bday", required = "required" } })
+                @Html.ValidationMessageFor(model => model.bday, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.studentSex, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "studentSex", required = "required" } })
+                @Html.ValidationMessageFor(model => model.studentSex, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "phone", required = "required" } })
+                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.homeAddress, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "homeAddress", required = "required" } })
+                @Html.ValidationMessageFor(model => model.homeAddress, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "email", required = "required" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.StudentFirstParentName, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "StudentFirstParentName", required = "required" } })
+                @Html.ValidationMessageFor(model => model.StudentFirstParentName, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.StudentFirstParentPhone, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "StudentFirstParentPhone", required = "required" } })
+                @Html.ValidationMessageFor(model => model.StudentFirstParentPhone, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.StudentSecondParentName, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "StudentFirstParentName", required = "required" } })
+                @Html.ValidationMessageFor(model => model.StudentSecondParentName, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.StudentSecondParentPhone, new { htmlAttributes = new { @class = "sign-up-input", @placeholder = "StudentFirstParentPhone", required = "required" } })
+                @Html.ValidationMessageFor(model => model.StudentSecondParentPhone, "", new { @class = "text-danger" })
+            </div>*@
+
+            <div>
+                <input class="sign-up-input" type="text" asp-for="studentName" placeholder="Ім'я" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="studentMiddleName" placeholder="По-батькові" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="studentLastName" placeholder="Прізвище" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="date" asp-for="bday" placeholder="Дата" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="tel" asp-for="phone" placeholder="Мобільний" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="homeAddress" placeholder="Домашня адреса" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="email" asp-for="email" placeholder="Електронна пошта" autofocus />
+            </div>
+            <select asp-for="studentSex">
+                <option value="Чоловіча">Чоловіча</option>
+                <option value="Жіноча">Жіноча</option>
+            </select>
+            @*<div>
+                <input class="sign-up-input" type="" asp-for="studentSex" placeholder="Стать" autofocus />
+            </div>*@
+            <div>
+                <input class="sign-up-input" type="text" asp-for="StudentFirstParentName" placeholder="Ім'я опікуна" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="StudentFirstParentPhone" placeholder="Телефон" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="StudentSecondParentName" placeholder="Ім'я опікуна" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="StudentSecondParentPhone" placeholder="Телефон" autofocus />
+            </div>
+
+
+
+
+            <input type="submit" value="Додати" class="sign-up-button">
+        }
+    </div>
+</body>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

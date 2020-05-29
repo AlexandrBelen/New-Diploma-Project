@@ -1,0 +1,90 @@
+﻿@model WEB.Models.TeacherInfoViewModel
+@{
+    ViewData["Title"] = "AddTeacherInfo";
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Новий викладач</title>
+    //
+    <link rel="stylesheet" href="~/css/StyleHome — копия.css">
+    //
+    <link rel="stylesheet" href="~/css/Login — копия — копия — копия — копия.css" />
+</head>
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="Teacher" asp-action="Index">Головна</a>
+                        </li>
+                        <li>
+                            <a href=""></a>
+                            <ul class="sub">
+                                <li><a href="">Вмкладчі</a></li>
+                                <li><a href="">Освіта</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <div class="sign-up">
+        <h1 class="sign-up-title">Додати інформацію</h1>
+
+        @using (Html.BeginForm("AddTeacherInfo", "Teacher", FormMethod.Post))
+        {
+            <div>
+                <input class="sign-up-input" type="text" asp-for="teacherName" placeholder="Ім'я" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="teacherMiddleName" placeholder="По-батькові" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="teacherLastName" placeholder="Прізвище" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="date" asp-for="bday" placeholder="Дата народженння" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="tel" asp-for="phone" placeholder="Мобільний телефон" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="homeAddress" placeholder="Домашня адреса" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="email" asp-for="email" placeholder="Електронна пошта" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="trainingYear" placeholder="Рік" autofocus />
+            </div>
+            <div>
+                <input class="sign-up-input" type="text" asp-for="description" placeholder="Примітка" autofocus />
+            </div>
+
+
+
+
+            <input type="submit" value="Додати" class="sign-up-button">
+        }
+    </div>
+</body>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

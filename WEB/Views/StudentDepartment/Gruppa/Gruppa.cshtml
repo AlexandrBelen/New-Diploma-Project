@@ -1,0 +1,107 @@
+﻿@using BLL.DTO;
+@model WEB.Views.StudentShtat.Gruppa
+@{
+}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Admin</title>
+
+    <link rel="stylesheet" href="~/css/StyleHome.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Login.css">
+
+
+</head>
+
+
+<body>
+    <header>
+        <div class="child">
+            <div class="wrap">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a asp-area="" asp-controller="StudentDepartment" asp-action="VHome">Головна</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="StudentDepartment" asp-action="GetStudentInfo">Перелік факультетів</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="StudentDepartment" asp-action="AddStudentInfo">Добавити факультет</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a asp-area="" asp-controller="StudentDepartment" asp-action="GetGruppa">Перелік кафедр</a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="StudentDepartment" asp-action="AddGruppa">Добавити кафедру</a></li>
+                            </ul>
+                        </li>
+
+                        
+
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="wrap_">
+                <nav>
+                    <ul class="primary">
+                        <li>
+                            <a href=""><pre>   Акаунт ▽    </pre></a>
+                            <ul class="sub">
+                                <li><a asp-area="" asp-controller="account" asp-action="logout">Вихід</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        table {
+            width: 30%; /* Ширина таблицы */
+            padding-top: 50px;
+            padding-left: 10px;
+            color: black; /* Цвет текста */
+            border-spacing: 1px; /* Расстояние между ячейками */
+        }
+
+        td, th {
+            background: #FFCC99; /* Цвет фона ячеек */
+            padding: 5px; /* Поля вокруг текста */
+        }
+    </style>
+
+    <table>
+        <tr>
+            <th colspan="3"> Список груп</th>
+        </tr>
+        <tr>
+            <th>Назва</th>
+            <th>Куратор</th>
+            <th>Форма навчання</th>
+            <th>Кафедра</th>
+            <th>Курс</th>
+            <th>Освітній рівень</th>
+        </tr>
+
+        @foreach (GruppaDTO list in Model.newList)
+        {
+    <tr>
+        <td>@list.name </td>
+        <td>@list.curator</td>
+        <td>@list.education</td>
+        <td>@list.cathedra</td>
+        <td>@list.year</td>
+        <td>@list.educDegreeDTO</td>
+    </tr>
+        }
+    </table>
+</body>
